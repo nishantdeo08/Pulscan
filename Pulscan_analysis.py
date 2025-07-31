@@ -31,7 +31,7 @@ def matching_frequency(par_file_path, pulscan_output_path):
     freq_expect, A1, M2 = parse_par_file(par_file_path)
 
     for file in matching_files:
-        data = np.loadtxt(file)
+        data = np.loadtxt(file, skiprows=1, delimiter=',')
         if data.ndim == 1:
             data = data.reshape(1, -1)  # If only one candidate in file
 
